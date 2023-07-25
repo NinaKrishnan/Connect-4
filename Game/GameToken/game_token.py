@@ -1,13 +1,12 @@
 import numpy as np 
 from enum import Enum
+from Game.GameToken.color import Color
 
 
 class GameToken:
 
-    class Color(Enum):
-        RED = 1
-        YELLOW = 2
 
 
-    def __init__(self, color):
+
+    def __init__(self, color: Color):
         self.color = color
