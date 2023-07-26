@@ -30,9 +30,9 @@ class Board:
                 token: GameToken = self.board[row][col]
 
                 if token is None:
-                    curr_row += "-"
+                    curr_row += " - "
                 else:
-                    curr_row += token.color.value
+                    curr_row += (" "+token.color.value+" ")
 
 
             print(curr_row)

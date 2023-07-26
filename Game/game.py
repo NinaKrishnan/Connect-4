@@ -88,27 +88,28 @@ class Game:
 
     def check_win_diagonal_right_to_left(self, row: int, col: int, color: GameToken.Color) -> bool:
         #Check top left to bottom right
-        
+        matches: bool = False
         #Start with down+right from token
         if row+3 < self.board.rows and col+3 < self.board.cols:
             for i in range(4):
                 if not self.token_matches(row+i, col+i, color):
+                    matches = False
                     break
         
                 else: 
-                    return True
+                    matches = True 
                 
         #Then check up+left from token
         if row-3 >= 0 and col-3 >= 0:
             for i in range(4):
                 if not self.token_matches(row-i, col-i, color):
-                    break
+                    matches = False
 
                 else:
-                    return True
+                    matches = True
 
 
-        return False
+        return matches
 
 ##################################################################################################
 
@@ -121,26 +122,28 @@ class Game:
 
     def check_win_diagonal_left_to_right(self, row: int, col: int, color: GameToken.Color) -> bool:
         #Check top right to bottom left
-
+        matches: bool = False
         #first check down+let from token
         if row+3 < self.board.rows and col-3 > 0:
             for i in range(4):
                 if self.board.board[row+i][col-i] != color:
+                    matches = False
                     break
                 else:
-                    return True
+                    matches = True
                 
         #Then check up+right from token
         if row-3 > 0 and col+3 < self.board.cols:
             for i in range(4):
                 if self.board.board[row-i][col+i] != color:
+                    matches = False
                     break
 
                 else:
-                    return True
+                    matches = True
 
 
-        return False
+        return matches
     
 ##################################################################################################
 
