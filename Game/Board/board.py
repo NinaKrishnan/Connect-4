@@ -1,6 +1,7 @@
 #imports:
 import numpy as np
 from Game.GameToken.game_token import GameToken
+from Game.color import Color
 
 
 
@@ -26,22 +27,21 @@ class Board:
             curr_row = ""
 
             for col in range(self.cols):
-                token = self.board[row][col]
+                token: GameToken = self.board[row][col]
 
                 if token is None:
-                    curr_row += "- "
-                
-                elif token.color == GameToken.Color.RED:
-                    curr_row += "R "
-
-                elif token.color == GameToken.Color.YELLOW:
-                    curr_row += "Y "
+                    curr_row += "-"
+                else:
+                    curr_row += token.color.value
 
 
             print(curr_row)
 
         print("")
 
+
+    def is_valid_column(self, col: int) -> bool:
+        return 1 <= col <= 7 and self.board[0][col-1] is None
             
 
 

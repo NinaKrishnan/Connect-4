@@ -1,11 +1,13 @@
-import Game.game
+from Game.game import Game
 from Game.Board.board import Board
 from Game.GameToken.game_token import GameToken
 
 def main():
-    board = Board()
+   game: Game = Game()
 
-    board.display_board()
+   game.play_game()
+
+   
 
 
 if __name__ == "__main__":
